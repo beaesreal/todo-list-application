@@ -1,5 +1,5 @@
 import { CODE_ENTER } from "keycode-js";
-import React, {useState, keyCode} from "react";
+import React, {useState} from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
