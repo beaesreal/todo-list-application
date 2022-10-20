@@ -10,3 +10,52 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body{
+    margin-top: 60px;
+    background-color: rgb(243, 233, 222);
+}
+ul{
+    padding: 0;
+    margin-bottom: 0;
+}
+
+ul li{
+    padding: 20px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    list-style: none;
+    font-size: 20px;
+    font-weight: 50;
+}
+
+input{
+    border: none;
+    width: 100%;
+    background-color: #F8F9FA;
+}
+
+.heading{
+    font-size: 80px;
+    color: rgb(224, 190, 154) ;
+    font-weight: 100;
+    padding-bottom: 40px;
+}
+
+.tasks-container{
+    border: 1px solid rgb(243, 233, 222);
+    box-shadow: 6px 6px 10px 1px rgba(192, 171, 149, 0.507);
+    padding-left: 20px;
+}
+
+.count{
+    font-size: 18px;
+    color: rgb(172, 172, 172);
+    margin-top: 40px;
+}
+
+.fa-trash-alt:hover{
+    color: rgb(235, 82, 82);
+}
+
+.fa-trash-alt{
+    color: rgb(177, 177, 177);
+}
