@@ -1,15 +1,26 @@
 import { CODE_ENTER } from "keycode-js";
-import React, {useState} from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import { string } from "prop-types";
+import React, {useState, useEffect} from "react";
+import { getTodoList } from "../../../services/getTodoList";
+import { updateTodoList } from "../../../services/updateToDoList";
 
 //create your first component
 const Home = () => {
 
 
-	const [inputValue, setInputValue] = useState ("");
+	const [inputValue, setInputValue] = useState ([]);
 	const [item, setItem] = useState ([]);
+	
+	var totalTasks = item.length;
+
+	useEffect(() => {
+		getTodoList().then(response => setInputValue(response))
+	}, []);
+
+	useEffect(() =>{
+		updateTodoList(inputValue)
+	}, [inputValue]);
+
 	return (
 		<div className="container">
 			<h1 className="heading text-center">~ My todo list ~</h1>
@@ -30,12 +41,13 @@ const Home = () => {
 				</li>
 					
 				{item.map((task, index) => 
-				(<li className="row justify-content-between m-0">
-					<div className="col-11"> {task[0].toUpperCase() + task.substring(1)} </div> <span className="col-1 text-center"><i className="fas fa-trash-alt" onClick={() => setItem(item.filter((task, currentIndex) => index != currentIndex))}></i></span>
+				(<li className="row justify-content-between m-0" >
+					<div className="col-11"> {task[0].toUpperCase() + task.substring(1)} </div> 
+					<span className="col-1 text-center"><i className="fas fa-trash-alt" onClick={() => setItem(item.filter((task, currentIndex) => index != currentIndex))}></i></span>
 				</li>))}
 
 			</ul>
-			<div className="count">{item.length} item(s) left</div>
+			<div className="count">{totalTasks} item(s) left</div>
 			</div>
 		</div>
 	);
